@@ -1,0 +1,28 @@
+{% extends "main/base.html" %}
+<!DOCTYPE html>
+<html lang="en">
+
+
+{% load static %}
+{% block css %} {% endblock css %}
+   {% block title %} <title>Добавить</title>{% endblock title %}
+{% block container %}
+<div id="page" class="container">
+<div class="features>"
+      <div class="info-block">
+     <h1>Форма заполнения</h1>
+    <form method="post"
+      enctype="multipart/form-data">
+    {% csrf_token %}
+    {{form.title}}
+    {{form.summary}}
+    {{form.full_text}}
+    {{form.date}}
+    {{form.banner}}<br>
+    <span>{{error}}</span><br>
+    <button class="btn btn-success" type="submit">Изменить</button>
+    </form>
+</div>
+</div>
+</div>
+{% endblock container %}

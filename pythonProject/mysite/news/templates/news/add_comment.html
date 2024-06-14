@@ -1,0 +1,22 @@
+{% load static %}
+
+{% block title %} <title>Добавить</title>{% endblock title %}
+{% block container %}
+<div id="page" class="container">
+        <div class="info-block">
+    {% if user.is_authenticated %}
+        <form method="post"
+        class="textatea">
+            {% csrf_token %}
+            {{ form }}
+            <br/>
+            <br/>
+            <button type="submit" class="button-link btn btn-secondary">Оставить комментарий</button>
+        </form>
+    {% else %}
+        <a href="{% url 'users:login' %}" class="button-link">Войдите, чтобы оставить комментарий</a>
+    {% endif %}
+</div>
+    </div>
+{% endblock container %}
+

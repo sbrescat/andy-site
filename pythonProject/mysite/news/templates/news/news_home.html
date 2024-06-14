@@ -1,0 +1,30 @@
+{% extends "main/base.html" %}
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+
+{% block css %} {% endblock css %}
+   <div id="page" class="container">
+   {% block title %} <title>Новости ПГТ</title>{% endblock title %}
+{% block container %}
+    <div class="container" id="page">
+                <div class="info-block">
+        <a style="color: white" class="button-link"  href="?ordering=date">Sort by oldest</a> |
+        <a style="color: white" class="button-link" href="?ordering=-date">Sort by newest</a>
+        <br>
+    <ul>
+        <br>
+        {% for article in articles %}
+            <li><strong><a style="color: white; text-align:center;text-decoration: none; font-weight: 800; padding-bottom: 20px;" href="{% url 'news_detail' article.id %}">{{ article.title }}</a> - {{ article.date }}</strong>
+        <br>
+        {{ article.summary }} </li>
+        от {{ article.author}}
+         <br>
+         <br>
+        {% empty %}
+            <li>No articles found.</li>
+        {% endfor %}
+    </ul>
+</div>
+        </div>
+{% endblock container %}

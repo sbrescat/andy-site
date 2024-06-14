@@ -1,0 +1,129 @@
+html, body {
+	height: 100%;
+}
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #2a2a2a; /* Светлее темный фон */
+            color: #f0f0f0; /* Светлее текст */
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #333333; /* Светлее фон хедера */
+            padding: 20px;
+            text-align: center;
+            color: #ffffff;
+            border-bottom: 2px solid #444444;
+        }
+        .wrapper {
+            width: 90%; /* Ширина 90% экрана */
+            margin: 0 auto; /* Центрирование */
+            padding: 20px 0; /* Внешний отступ сверху и снизу */
+            box-sizing: border-box;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #333333; /* Светлее фон навигации */
+            padding: 10px 0;
+            border-bottom: 2px solid #444444;
+        }
+        nav a, .button-link {
+            color: #d0d0d0;
+            text-decoration: none;
+            margin: 0 15px;
+            padding: 10px 15px;
+            border-radius: 15px; /* Скругленные углы */
+            transition: background-color 0.3s;
+            cursor: pointer; /* Добавлен указатель курсора для кнопки */
+        }
+        nav a:hover, .button-link:hover {
+            background-color: #444444; /* Светлее цвет при наведении */
+        }
+        .search-container {
+            display: flex;
+            align-items: center;
+            margin-left: 20px; /* Отступ между пунктом меню и поисковой строкой */
+        }
+        .search-container input {
+            padding: 5px;
+            border-radius: 15px; /* Скругленные углы */
+            border: 1px solid #555555;
+            background-color: #444444;
+            color: #f0f0f0;
+        }
+        .button-link {
+            padding: 5px 10px;
+            border: none;
+            border-radius: 15px; /* Скругленные углы */
+            background-color: #333333;
+            color: #f0f0f0;
+            cursor: pointer;
+            margin-left: 5px;
+        }
+        .button-link:hover {
+            background-color: #444444; /* Еще светлее */
+        }
+        main {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Колонки */
+            gap: 20px;
+        }
+        .column {
+            background-color: #333333;
+            border-radius: 10px; /* Скругленные углы */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .column h2 {
+            color: #ffffff;
+        }
+        .column p {
+            color: #d0d0d0;
+        }
+        .column img {
+            width: 100%;
+            border-radius: 10px;
+        }
+        .info-block {
+            background-color: #333333;
+            border-radius: 10px; /* Скругленные углы */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            margin-top: 20px;
+            box-sizing: border-box;
+        }
+        .info-block h2 {
+            color: #ffffff;
+        }
+        .info-block p {
+            color: #d0d0d0;
+        }
+        .info-block a {
+            color: #1e90ff;
+            text-decoration: none;
+        }
+        .info-block a:hover {
+            text-decoration: underline;
+        }
+        footer {
+            background-color: #333333;
+            color: #d0d0d0;
+            text-align: center;
+            padding: 10px 0;
+            border-top: 2px solid #444444;
+        }
+        textarea {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-size: 14px;
+        }
+        center {
+            text-align: center;
+        }

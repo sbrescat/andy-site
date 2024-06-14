@@ -1,0 +1,59 @@
+{% extends "main/base.html" %}
+{% load static %}
+{% block css %} {% endblock css %}
+   {% block title %} <title>Home</title>{% endblock title %}
+
+{% block container %}
+<br>
+	<h1 align="middle">О нас</h1>
+<div class="wrapper">
+<div id="page" class="container">
+
+	{% if user.is_authenticated %}
+        <p>Welcome {{ user.username }} !!!</p>
+    {% endif %}
+    <main>
+		<div class="column">
+			<div class="title">
+				<h2>НАШ МАЛЕНЬКИЙ УГОЛОК</h2>
+			</div>
+			<p>ПГТ Мочалкино находится в Псковской области. Наше население на дату 14.06.2024 составляет 3500 человек. </p>
+		</div>
+		<div class="column">
+			<div class="title">
+				<h2>КАК СДЕЛАТЬ ШАШЛЫК НА БАЛКОНЕ ПРАВИЛЬНО</h2>
+			</div>
+			<img src="https://sun9-77.userapi.com/impg/zF_zOgJzhGWOlvBcBeHXWkOtgHZ83naEKdAkoA/QX0xcVBpMi4.jpg?size=736x769&quality=95&sign=98cadd3d28c49dc5d219848483a0d4f8&type=album" width="282" height="150" alt="" />
+			<p> Наступило лето, но нет возможности сорваться с друзьями за город? Расскажем о способах полакомиться любимой едой, не выходя из дома и не привлекая внимания пожарных.</p>
+		</div>
+		<div class="column">
+			<div class="title">
+				<h2>ВЫБИРАЕМ ШОППЕРЫ ДЛЯ ПОКУПКИ КАРТОШКИ</h2>
+			</div>
+			<img src="https://sun9-33.userapi.com/impg/kuvpbZa52lwhUdqqVwKdbMZU1MFZTeAZnqBwVA/Tm_ATMy9YVU.jpg?size=736x981&quality=95&sign=c31c6670ee8737aaf17682874fcfb78a&type=album" width="282" height="150" alt="" />
+			<p>Мы расскажем о практических способах ходить за картошкой с любимой сумочкой, не пачкая её.</p>
+		</div>
+		<div class="column">
+			<div class="title">
+				<h2>ОФОРМЛЯЕМ ДОМ СТИЛЬНО</h2>
+			</div>
+			<img src="http://rasfokus.ru/images/photos/medium/074021192cd937c16471aca7e5773ea6.jpg" width="282" height="150" alt="" />
+			<p>Раскрошившиеся наличники - не приговор, и теперь вы сможете оформить свой маленький уголок красиво.</p>
+		</div>
+		    </main>
+<br>
+	<h1 align="middle">Последние новости</h1>
+    <div class="info-block">
+
+        {% for article in articles %}
+            <li>
+                <h2><strong><a style="color: white; text-align:center;text-decoration: none; font-weight: 800; padding-bottom: 20px;" href="{% url 'news_detail' article.id %}">{{ article.title }}</a></strong></h2>
+                <p>{{ article.summary }}</p>
+                <p>Published on: {{ article.date }}</p>
+            </li>
+        {% endfor %}
+
+		</div>
+			</div>
+{% endblock container%}
+

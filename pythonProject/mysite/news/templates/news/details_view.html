@@ -1,0 +1,61 @@
+{% extends "main/base.html" %}
+{% load static %}
+
+
+{% block css %} {% endblock css %}
+
+{% block title %}
+<title>{{ article.title }}</title>
+{% endblock title %}
+
+{% block container %}
+<div id="page" class="container">
+    <div class="features">
+         <div class="info-block">
+        <h1>{{ article.title }}</h1>
+        {% if article.banner %}
+        <img src="{{ article.banner.url }}">
+        {% endif %}
+        <p>{{ article.date }}</p>
+        <p>{{ article.full_text }}</p>
+        <p>{{ article.author }}</p>
+        {% if user.is_authenticated %}
+             {% if user.is_staff %}
+        <a style="color: black" href="{% url 'news_update' article.id%}" class="btn btn-info">Редактировать</a>
+        <a style="color: black" href="{% url 'news_delete' article.id%}" class="btn btn-danger">Удалить</a>
+        {% endif %}
+{% endif %}
+        <br/>
+        <br/>
+        <br/>
+        <h3>Комментарии</h3>
+        <br/>
+        {% if not article.comments.all %}
+        Эту новость ещё никто не комментировал.
+        <br/>
+        {% else %}
+        {% for comment in article.comments.all %}
+        <br/>
+        <strong>{{ comment.author }} - {{ comment.date }}</strong>
+        <br/>
+        {{ comment.full_text }}
+        <br/>
+        {% endfor %}
+        {% endif %}
+        <br/>
+
+        <br/>
+        {% if user.is_authenticated %}
+        <form method="post"
+        class="textarea">
+            {% csrf_token %}
+            {{ form }}
+            <p><input type="submit" value="Добавить комментарий" class="button-link"></p>
+        </form>
+        {% else %}
+        <a href="{% url 'users:login' %}" class="button-link">Войдите, чтобы оставить комментарий</a>
+        {% endif %}
+    </div>
+</div>
+</div>
+{% endblock container %}

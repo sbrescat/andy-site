@@ -1,0 +1,19 @@
+{% extends "main/base.html" %}
+
+
+
+{% block css %} {% endblock css %}
+{% block title %} <title>Удаление статьи</title>{% endblock title %}
+{% block container %}
+<div class="container" id="page">
+            <div class="info-block">
+    <div class="features>"
+    <h1>Удаление</h1>
+        <form method="post">{% csrf_token %}
+            <p>Вы точно хотите удалить новость?</p>
+            <button class="btn btn-success" type="submit">Удалить</button>
+         </form>
+    </div>
+</div>
+</div>
+{% endblock container %}

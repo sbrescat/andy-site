@@ -1,0 +1,18 @@
+{% extends "main/base.html" %}
+{% load static %}
+
+{% block container %}
+    <div id="page" class="container">
+        <div class="info-block">
+
+<ul>
+    {% for articles in articles %}
+        <li><a style="color: white; text-align:center;text-decoration: none; font-weight: 800; padding-bottom: 20px;" href="{% url 'news_detail' articles.id %}">{{ articles.title }}</a></li>
+    {% empty %}
+        <li>No articles found.</li>
+    {% endfor %}
+</ul>
+        </div>
+                </div>
+                </div>
+{% endblock container %}

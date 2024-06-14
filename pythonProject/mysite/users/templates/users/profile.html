@@ -1,0 +1,29 @@
+{% extends "main/base.html" %}
+
+{% block title %} <title>Регистрация</title>{% endblock title %}
+{% block container %}
+<div class="container">
+                  <div class="info-block">
+  <h3>Профиль</h3>
+   <br>
+  <br>
+  <h5>Информация о пользователе</h5>
+
+  <p>Username: {{ user.username }}</p>
+
+
+  <h5>Комментарии</h5>
+  <ul>
+    {% for comment in comments %}
+      <li>{{ comment.full_text}}</li>
+    {% empty %}
+      <li>No comments yet.</li>
+    {% endfor %}
+  </ul>
+
+    <h3>Смена пароля</h3>
+  <a href="{% url 'users:change_password' %}">Сменить</a>
+</div>
+</div>
+</div>
+{% endblock container %}
